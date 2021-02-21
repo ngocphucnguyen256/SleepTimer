@@ -1,5 +1,5 @@
 window.onload=function currentTime() {
-    var date = new Date(); /* creating object of Date class */
+    var date = new Date();
     var hour = date.getHours();
     var min = date.getMinutes();
     var sec = date.getSeconds();
@@ -12,19 +12,19 @@ window.onload=function currentTime() {
       //1:30
 /*-----------------cal1-------------------*/
 
-    document.getElementById("cal1").onclick= function calcutate1(){
-      var h=hour; var m=min; var i=1;
-      h+=1;
-      m+=44;
-      while(h>=24 || m>=60){
-      if(m>=60){
-        m-=60;
-        h++;}
-      if(h>=24){
-        h-=24;}
-      }
-      document.getElementById("show"+i).innerText=updateTime(h) + " : " + updateTime(m);
-      while(i<6){
+      document.getElementById("cal1").onclick= function calcutate1(){
+        var h=hour; var m=min; var i=1;
+        h+=1;
+        m+=44;
+        while(h>=24 || m>=60){
+          if(m>=60){
+            m-=60;
+            h++;}
+          if(h>=24){
+            h-=24;}
+          }
+        document.getElementById("show"+i).innerText=updateTime(h) + " : " + updateTime(m);
+        while(i<6){
           i++;
           h+=1;
           m+=30;
@@ -35,18 +35,12 @@ window.onload=function currentTime() {
             if(h>=24){
               h-=24;}
             }
-
-        document.getElementById("show"+i).innerText=updateTime(h) + " : " + updateTime(m);
+          document.getElementById("show"+i).innerText=updateTime(h) + " : " + updateTime(m);
         }
-/*---------------close/open----------------*/
-      document.getElementById("close1").style.display="block";
-        var j =1;
-        while(j<=6){
-        if(document.getElementById("show"+j).style.display=="none"){
-          document.getElementById("show"+j).style.display=="block";}
-        j++;
+        toggle(1);
+      
+        
       }
-    }
 /*-----------------cal2-------------------*/
       document.getElementById("cal2").onclick= function calcutate2(){
         var h; var m; var i=6;
@@ -80,6 +74,9 @@ window.onload=function currentTime() {
             i--;
             document.getElementById("show2_"+i).innerText=h + " : " + m;
             }
+          toggle(2);
+       
+
       }
 
   function updateTime(k) {
@@ -90,10 +87,12 @@ window.onload=function currentTime() {
       return k;
     }
   }
-  document.getElementById("close1").onclick=function closeMenu(){
-    for(var j=1;j<=6;j++){
-      document.getElementById("show"+j).style.display="none";
-    }
-    document.getElementById("close1").style.display="none";
+ 
+}
+function toggle(t){
+  if (document.getElementById("toggle"+t).style.display === "none") {
+    document.getElementById("toggle"+t).style.display = "block";
+  } else {
+    document.getElementById("toggle"+t).style.display = "none";
   }
 }
