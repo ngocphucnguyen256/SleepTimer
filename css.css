@@ -104,20 +104,22 @@ img:hover{
   right: 20px;
 }
 footer{
+  display: flex;
   height: 100%;
-  padding-top: 30px;
+  margin:10px;
   border: 1px solid grey;
   text-align: right;
 }
 footer>div{
   color: slategray;
- 
+  padding: 5px;
+  margin-left: 50px;
+}
+footer>div:hover{
+  background-color:grey;
 }
 a{
   text-decoration: none;
-}
-.imgSlide_1,.imgSlide_2,.imgSlide_3,.imgSlide_4{
-  display:none;
 }
 /*
 
