@@ -1,6 +1,8 @@
 window.onload = function functions() {
   currentTime();
-  //calulate 1
+  var myIndex = 0;
+  carousel();
+   //calulate 1
   document.getElementById("cal1").addEventListener("click", function calcutate1() {
     var date = new Date();
     var h = date.getHours();
@@ -85,10 +87,19 @@ window.onload = function functions() {
   window.onscroll = function () {
     scrollFunction()
   };
-  function sildeImg(){
-            
+  //carousel
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("imgSlide_1");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
   }
-}
+ }
 //ket thuc onload
 /*functions*/
 //current time
@@ -129,3 +140,5 @@ function scrollFunction() {
     document.getElementById("top").style.display = "none";
   }
 };
+//silde
+
