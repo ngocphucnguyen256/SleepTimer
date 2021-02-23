@@ -40,8 +40,7 @@ window.onload = function functions() {
       document.getElementById("show" + i).innerText = updateTime(h) + " : " + updateTime(m);
     }
     toggle(1);
-  
-  
+    overFlow();
   });
   //calcutate2
   document.getElementById("cal2").addEventListener("click", function calcutate2() {
@@ -79,6 +78,7 @@ window.onload = function functions() {
       document.getElementById("show2_" + i).innerText = h + " : " + m;
     }
     toggle(2);
+    overFlow();
   });
   //go top 
   document.getElementById("top").addEventListener("click", function topFunction() {
@@ -144,3 +144,13 @@ function scrollFunction() {
     document.getElementById("top").style.display = "none";
   }
 };
+function overFlow(){
+  if((document.getElementById("toggle" + 1).style.display == "block") ||
+(document.getElementById("toggle" + 2).style.display == "block" )){
+          document.getElementById("overFlow").style.display = "none";
+   }
+   else{
+    document.getElementById("overFlow").style.display = "block";
+
+   } 
+}
