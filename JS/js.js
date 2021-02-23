@@ -99,7 +99,6 @@ window.onload = function functions() {
       x[i].style.display = "none";  
     }
     if (num >= x.length) {num = 0;}   
-    console.log(num);
     x[num].style.display = "block";  
     num++;
     setTimeout(carousel, 2000,pos,num); // Change image every 2 seconds

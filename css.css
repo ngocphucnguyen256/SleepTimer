@@ -2,14 +2,14 @@
 body{
   background-color: #121212;
     text-align: center;
-    color: wheat;
+    color: #ec61cefd;
     margin: auto;
     font-size: 18px;
 
 }
 @keyframes header {
-  from{color:salmon;}
-  to{color:darkcyan;}
+  from{color:#f7240c;}
+  to{color:#4ffc0a;}
 }
 @keyframes clock {
   from{color: hsl(141, 12%, 44%);}
@@ -21,8 +21,8 @@ body{
 }
 h1{
     text-shadow: 1px slategray;
-    font-size: 60px;
-    color:salmon;
+    font-size: 70px;
+    color:#f7240c;
     animation: header 4s infinite ease-in-out;
 }
 
@@ -41,6 +41,12 @@ h1{
   border:  1px solid wheat;
   animation: clock 4s infinite ease-in-out;
 }
+#clock:hover{
+  background-color: rgba(84, 219, 152, 0.1);
+  border: 1px mediumslateblue transparent;
+  font-size: 60px;
+  transition:transform 2s;
+}
 .show{
   color:darksalmon;
   font-size: 40px;
@@ -49,10 +55,17 @@ h1{
   animation: show 4s infinite ease-in-out;
 
 }
+.show:hover{
+  background-color: rgba(26, 29, 28, 0.5);
+  border: 1px rgb(30, 17, 100) transparent;
+}
 input{
+  color:rgb(28, 177, 28);
+
   font-size: 20px;
 }
 button{
+  color:rgb(28, 177, 28);
   border: 1px solid wheat;
   padding: 10px;
   margin: 20px;
@@ -77,6 +90,10 @@ img{
 }
 img:hover{
   transform: scale(1.1);
+}
+#imgMid{
+  width:100%;
+  height: auto;
 }
 .toggle{
   display: none;
