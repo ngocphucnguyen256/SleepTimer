@@ -85,6 +85,9 @@ window.onload = function functions() {
   window.onscroll = function () {
     scrollFunction()
   };
+  function sildeImg(){
+            
+  }
 }
 //ket thuc onload
 /*functions*/

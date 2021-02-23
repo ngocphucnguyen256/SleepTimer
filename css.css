@@ -57,8 +57,11 @@ button{
   padding: 10px;
   margin: 20px;
   font-size: 18px;
+  transform: transform .5s;
 }
-
+button:hover{
+  transform: scale(1.2);
+}
 br{
   font-size: 30px;
 }
