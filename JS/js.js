@@ -1,11 +1,5 @@
 window.onload = function functions() {
   currentTime();
-  //carousel
-  var num=0;
-  carousel(1,num);
-  carousel(2,num);
-  carousel(3,num);
-  carousel(4,num);
    //calulate 1
   document.getElementById("cal1").addEventListener("click", function calcutate1() {
     var date = new Date();
@@ -91,18 +85,6 @@ window.onload = function functions() {
   window.onscroll = function () {
     scrollFunction()
   };
-  //carousel
-  function carousel(pos,num) {
-    var i;
-    var x = document.getElementsByClassName("imgSlide_"+pos);
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    if (num >= x.length) {num = 0;}   
-    x[num].style.display = "block";  
-    num++;
-    setTimeout(carousel, 2000,pos,num); // Change image every 2 seconds
-  }
  }
 //ket thuc onload
 /*functions*/
