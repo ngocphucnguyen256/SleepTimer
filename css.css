@@ -39,6 +39,7 @@ h1{
   padding-top: 40px;
   padding-bottom: 40px;
   border:  1px solid wheat;
+  border-radius: 40px;
   animation: clock 4s infinite ease-in-out;
 }
 #clock:hover{
@@ -52,6 +53,8 @@ h1{
   font-size: 40px;
   padding-top: 30px;  
   border: 1px solid wheat;
+  border-radius: 40px;
+
   animation: show 4s infinite ease-in-out;
 
 }
@@ -67,6 +70,7 @@ input{
 button{
   color:rgb(28, 177, 28);
   border: 1px solid wheat;
+  border-radius: 10px;
   padding: 10px;
   margin: 20px;
   font-size: 18px;
