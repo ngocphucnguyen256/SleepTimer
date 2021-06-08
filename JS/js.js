@@ -1,90 +1,26 @@
 window.onload = function functions() {
   currentTime();
    //calulate 1
-  document.getElementById("cal1").addEventListener("click", function calcutate1() {
-    var date = new Date();
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var i = 1;
-    h += 1;
-    m += 44;
-    while (h >= 24 || m >= 60) {
-      if (m >= 60) {
-        m -= 60;
-        h++;
-      }
-      if (h >= 24) {
-        h -= 24;
-      }
-    }
-    document.getElementById("show" + i).innerText = updateTime(h) + " : " + updateTime(m);
-    while (i < 6) {
-      i++;
-      h += 1;
-      m += 30;
-      while (h >= 24 || m >= 60) {
-        if (m >= 60) {
-          m -= 60;
-          h++;
-        }
-        if (h >= 24) {
-          h -= 24;
-        }
-      }
-      document.getElementById("show" + i).innerText = updateTime(h) + " : " + updateTime(m);
-    }
-    toggle(1);
-    overFlow();
+  document.getElementById("calculateButton-1").addEventListener("click",  function(){
+    calculateButtonFunction('calculateButton-1');
   });
-  //calcutate2
-  document.getElementById("cal2").addEventListener("click", function calcutate2() {
-    var h;
-    var m;
-    var i = 6;
-    var container = document.getElementById("time").value.split(":");
-    h = container[0];
-    m = container[1];
-    h -= 1;
-    m -= 44;
-    if (m < 0) {
-      h--;
-      m = 60 + m;
-    }
-    if (h < 0) {
-      h = 12 + h;
-    }
-    h = updateTime(h);
-    m = updateTime(m);
-    document.getElementById("show2_" + i).innerText = h + " : " + m;
-    while (i > 1) {
-      h -= 1;
-      m -= 30;
-      if (m < 0) {
-        h--;
-        m = 60 + m;
-      }
-      if (h < 0) {
-        h = 12 + h;
-      }
-      h = updateTime(h);
-      m = updateTime(m);
-      i--;
-      document.getElementById("show2_" + i).innerText = h + " : " + m;
-    }
-    toggle(2);
-    overFlow();
-  });
+  document.getElementById("calculateButton-2").addEventListener("click",  function(){
+    calculateButtonFunction('calculateButton-2');
+  } );
   //go top 
-  document.getElementById("top").addEventListener("click", function topFunction() {
-    document.documentElement.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  window.onscroll = function () {
-    scrollFunction()
-  };
+  document.getElementById("goTopButton").addEventListener("click",  scrollToTopFunction);
+  window.onscroll =function(){ 
+    displayGoTopButton();
+  }
+document.getElementById("alarmDialog").addEventListener("click",  function(){
+    toggleAlarmDialog();
+})
+document.getElementById("seeMore").addEventListener("click",  function(){
+  toggleSeeMore();
+})
+document.getElementById("hide").addEventListener("click",  function(){
+  toggleHide();
+})
  }
 //ket thuc onload
 /*functions*/
@@ -102,6 +38,97 @@ function currentTime() {
     currentTime()
   }, 1000);
 }
+//calculateButtonFunction
+function calculateButtonFunction(targetId) {
+  const equationHour=1;
+  const equationMinute=44;
+  const equationMinuteAfter=30;
+  const minutesPerHour=60;
+  const hoursPerDay=24;
+  const rowNumber=6;
+  var timeContainer=[];
+  if(targetId=='calculateButton-1')
+ {   
+      var date = new Date();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var i = 1;
+      hour += equationHour;
+      minute += equationMinute;
+      while (hour >= hoursPerDay || minute >= minutesPerHour) {
+        if (minute >= minutesPerHour) {
+          minute -= minutesPerHour;
+          hour++;
+        }
+        if (hour >= hoursPerDay) {
+          hour -= hoursPerDay;
+        }
+      }
+      timeContainer.push(updateTime(hour) + " : " + updateTime(minute));
+      while (i < rowNumber) {
+        i++;
+        hour += equationHour;
+        minute += equationMinuteAfter;
+        while (hour >= hoursPerDay || minute >= minutesPerHour) {
+          if (minute >= minutesPerHour) {
+            minute -= minutesPerHour;
+            hour++;
+          }
+          if (hour >= hoursPerDay) {
+            hour -= hoursPerDay;
+          }
+        }
+      timeContainer.push(updateTime(hour) + " : " + updateTime(minute));
+      }
+        calculateButtonShow(timeContainer);
+        timeContainer=[];
+      }
+      else{
+          //calcutate2
+            var hour;
+            var minute;
+            var i=1;
+            var inputTime = document.getElementById("timeSelector").value.split(":");
+            hour = inputTime[0];
+            minute = inputTime[1];
+            hour -= equationHour;
+            minute -= equationMinute;
+            if (minute < 0) {
+              hour--;
+              minute = minutesPerHour + minute;
+            }
+            if (hour < 0) {
+              hour = hoursPerDay + hour;
+            }
+          timeContainer.push(updateTime(hour) + " : " + updateTime(minute));
+            while (i <rowNumber) {
+              hour -= equationHour;
+              minute -= equationMinuteAfter;
+              if (minute < 0) {
+                hour--;
+                minute = minutesPerHour + minute;
+              }
+              if (hour < 0) {
+                hour = hoursPerDay + hour;
+              }
+              timeContainer.push(updateTime(hour) + " : " + updateTime(minute));
+              i++;
+            }
+            calculateButtonShow(timeContainer);
+            timeContainer=[];
+          };
+                
+};
+function calculateButtonShow(timeContainer){
+      var i=1;
+      timeContainer.reverse();
+      timeContainer.forEach(function(item,array){
+        document.getElementById("dialogDiv"+i).innerText=item;
+        i++;
+      })
+       toggleAlarmDialog();
+  
+}
 //update time
 function updateTime(k) {
   if (k < 10) {
@@ -111,28 +138,35 @@ function updateTime(k) {
   }
 }
 //toggle
-function toggle(t) {
-  if (document.getElementById("toggle" + t).style.display === "none") {
-    document.getElementById("toggle" + t).style.display = "block";
+function toggleAlarmDialog() {
+  if (document.getElementById("alarmDialog").style.display == "none") {
+    document.getElementById("alarmDialog").style.display = "block";
   } else {
-    document.getElementById("toggle" + t).style.display = "none";
+    document.getElementById("alarmDialog").style.display = "none";
   }
+}
+function toggleSeeMore() {
+   document.getElementById("hiddenContent").style.display = "block";
+    document.getElementById("seeMore").style.display ="none";
+}
+function toggleHide() {
+  document.getElementById("hiddenContent").style.display = "none";
+  document.getElementById("seeMore").style.display = "block";
 }
 //display go top button
-function scrollFunction() {
+
+function displayGoTopButton() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("top").style.display = "block";
+    document.getElementById("goTopButton").style.display = "block";
   } else {
-    document.getElementById("top").style.display = "none";
+    document.getElementById("goTopButton").style.display = "none";
   }
 };
-function overFlow(){
-  if((document.getElementById("toggle" + 1).style.display == "block") ||
-(document.getElementById("toggle" + 2).style.display == "block" )){
-          document.getElementById("overFlow").style.display = "none";
-   }
-   else{
-    document.getElementById("overFlow").style.display = "block";
-
-   } 
-}
+//goToTopButtonFunctionfunction
+function scrollToTopFunction() {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+//contact

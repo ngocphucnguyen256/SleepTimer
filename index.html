@@ -14,59 +14,48 @@
 
 <body>
     <div class="container">
-    <!-- mid content -->
-        <div class="content">
             <h1>SLEEP TIMER</h1>
-            <br>TIMING YOUR HEALTH TO GET BETTER HEALTH
             <br>TIME NOW</br>
             <div id="clock"></div>
             <br>I'm sleepy right now, so my alarm should
             be set for... </br>
-            <section class="show">
-                <button id="cal1">Caculate</button>
-                <div id="toggle1" class="toggle">
-                    <div id="show1"></div>
-                    <div id="show2"></div>
-                    <div id="show3"></div>
-                    <div id="show4"></div>
-                    <div id="show5"></div>
-                    <div id="show6"></div>
-                </div>
-            </section>
+            <div id="alarmDialog">
+                <div>Your alarm should be set for:</div>
+                <div id="dialogDivs">
+                    <div id="dialogDiv1"></div>
+                    <div id="dialogDiv2"></div>
+                    <div id="dialogDiv3"></div>
+                    <div id="dialogDiv4"></div>
+                    <div id="dialogDiv5"></div>
+                    <div id="dialogDiv6"></div>
+               </div>
+            </div>
+            <button id="calculateButton-1">Caculate</button>
             <br>OR</br>
             <br>I need to wake up at:</br>
-            <input type="time" id="time" value="12:00:00">
-            <div class="show">
-                <button id="cal2">Caculate</button>
-                <div id="toggle2" class="toggle">
-                    <div id="show2_1"></div>
-                    <div id="show2_2"></div>
-                    <div id="show2_3"></div>
-                    <div id="show2_4"></div>
-                    <div id="show2_5"></div>
-                    <div id="show2_6"></div>
-                </div>
-            </div>
+            <input type="time" id="timeSelector" value="12:00:00">
+           <button id="calculateButton-2">Caculate</button>
             <div id="overFlow">
+                <div id="seeMore">See more...</div>
+                <div id="hiddenContent">
             <br>Getting a good night's sleep is about more than simply going to bed early
             – it's about waking up at the right time too.</br>
             <br>Using a formula based on the body's natural rhythms, the Sleep
             Calculator will work out the best time for you to rise or go to sleep.</br>
             <br> And that means you can look forward to feeling fresh and alert
-            … every morning.</b>
+            … every morning.<p id="hide">Hide</p></br> 
+         </div>
         </div>
         </div>
     </div>
 
-    <button id="top"><i class="fas fa-arrow-up"></i></button>
-    <footer>
-        <div>
+    <button id="goTopButton"><i class="fas fa-arrow-up"></i></button>
+    <div class="dropdown">
+        <div>Contact Me</div>
+        <div class="dropdown-content">
             <a href="https://www.facebook.com/lupin0310/""><i class="fab fa-facebook" > Facebook</i></a>
-        </div>
-        <div>
-             <a href="mailto:ngocphuc.nguyen256@gmail.com"><i class="fas fa-envelope"> Email</i></a>
-        </div>
-    </footer>
+            <a href="mailto:ngocphuc.nguyen256@gmail.com"><i class="fas fa-envelope"> Email</i></a>
+       </div>
+    </div>
 </body>
-
 </html>

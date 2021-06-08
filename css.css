@@ -1,15 +1,19 @@
-
-@font-face {
-  font-family: "Nunito";
-  src: url("../../fonts/Nunito-SemiBold.woff2") format("woff2"), url("../../fonts/Nunito-SemiBold.woff") format("woff"), url("../../fonts/Nunito-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal; }
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
 body{
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-weight: 300;
   background-color: #121212;
     text-align: center;
-    color: #ec61cefd;
+    color: white;
     font-size: 18px;
-    font-family: Nunito;
 }
 .container{
     text-align: center;
@@ -18,106 +22,125 @@ body{
     flex-direction:column;
     justify-content: center;
 }
-@keyframes header {
-  from{color:#f7240c;}
-  to{color:#4ffc0a;}
-}
-@keyframes clock {
-  from{color: hsl(141, 12%, 44%);}
-  to{color:rgb(16, 240, 240);}
-}
-@keyframes show {
-  from{color:darksalmon;}
-  to{color:rgb(245, 7, 86);}
-}
 h1{
     text-shadow: 1px slategray;
     font-size: 70px;
-    color:#f7240c;
-    animation: header 4s infinite ease-in-out;
 }
-
-.content{
-  background-image: url(IMG/background.jpg);
-  background-size: cover;
-  width: 100%;
-}
-
 #clock {
   font-family: 'Orbitron', sans-serif;
-  color: hsl(141, 12%, 44%);
+  color:rgb(28, 177, 28);
   font-size: 56px;
   padding: 40px 50px;
   border:  1px solid wheat;
   border-radius: 40px;
-  animation: clock 4s infinite ease-in-out;
-}
-#clock:hover{
-  background-color: rgba(84, 219, 152, 0.1);
-  border: 1px mediumslateblue transparent;
-  font-size: 60px;
-  transition:transform 2s;
-}
-.show{
-  color:darksalmon;
-  font-size: 40px;
-  animation: show 4s infinite ease-in-out;
-  padding:  0px;
-  width: auto;
-
-}
-.show:hover{
-  background-color: rgba(26, 29, 28, 0.5);
-  border: 1px rgb(30, 17, 100) transparent;
+  margin-top: 15px;
 }
 input{
   color:rgb(28, 177, 28);
-
+  width:15%;
   font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+
 }
 button{
-  color:rgb(28, 177, 28);
-  border: 1px solid wheat;
-  border-radius: 10px;
+  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  color: rgb(232, 230, 227);
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background-size: 300% 100%;
   padding: 10px;
   margin: 20px;
   font-size: 18px;
-  transform: transform .5s;
+  width: 20%;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+
 }
 button:hover{
-  transform: scale(1.2);
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+button:focus{
+  outline: none;
 }
 br{
   font-size: 30px;
 }
-
-
-.toggle{
-  display: none;
+#alarmDialog{
+    width: 500px;
+    height:auto;
+    padding: 50px ;
+    margin: auto;
+    border: 1px solid;
+   border-color: rgb(108, 101, 60);
+    border-radius: 80px;
+   background-color: #02244d;
+   position: absolute;
+   display: none;
 }
-#top{
+#dialogDivs{
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+  font-size:18px;
+  color:rgb(28, 177, 28);
+  
+  
+}
+#dialogDivs>div{
+  width: 20%;
+}
+#goTopButton{
   position: fixed;
   bottom: 20px;
   right: 20px;
+  display: none;
+  width: auto !important;
 }
-footer{
+#seeMore, #hide{
+  color: rgb(202, 178, 135);
+}
+#hiddenContent{
+  display: none;
+}
+.dropdown{
+
   display: flex;
-  height: 100%;
-  margin:10px;
-  border: 1px solid grey;
-  text-align: right;
-}
-footer>div{
-  color: slategray;
-  padding: 5px;
-  margin-left: 50px;
-}
-footer>div:hover{
-  background-color:grey;
+  position: fixed;
+  left: 2%;
+  bottom:2%;
 }
 a{
   text-decoration: none;
 }
-/*
+.dropdown-content{
+  display: none;
+}
+.dropdown-content a{
+  display:inline;
+  border: none;
+  border-radius:10px;
+  padding:10px;
+  margin: 10px;
+}
 
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: inline;  
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
