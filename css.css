@@ -3,7 +3,8 @@ html {
   height: 100%;
   width: 100%;
 }
-body{
+
+body {
   margin: 0px;
   min-height: 100%;
   width: 100%;
@@ -11,40 +12,51 @@ body{
   font-style: normal;
   font-weight: 300;
   background-color: #121212;
-    text-align: center;
-    color: white;
-    font-size: 18px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
 }
-.container{
-    text-align: center;
-    display:flex;
-    align-items: center;
-    flex-direction:column;
-    justify-content: center;
+
+.container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-h1{
-    text-shadow: 1px slategray;
-    font-size: 70px;
+
+h1 {
+  text-shadow: 1px slategray;
+  font-size: 70px;
 }
+
 #clock {
-  font-family: 'Orbitron', sans-serif;
-  color:rgb(28, 177, 28);
+  font-family: "Orbitron", sans-serif;
+  color: rgb(28, 177, 28);
   font-size: 56px;
   padding: 40px 50px;
-  border:  1px solid wheat;
+  border: 1px solid wheat;
   border-radius: 40px;
   margin-top: 15px;
 }
-input{
-  color:rgb(28, 177, 28);
-  width:15%;
+
+input {
+  display: block;
+  color: rgb(28, 177, 28);
+  width: 100%;
   font-size: 20px;
   text-align: center;
   margin-top: 15px;
-
 }
-button{
-  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+
+button {
+  background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
   color: rgb(232, 230, 227);
   cursor: pointer;
@@ -54,81 +66,109 @@ button{
   padding: 10px;
   margin: 20px;
   font-size: 18px;
-  width: 20%;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  width: 70%;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
 
-}
-button:hover{
+button:hover {
   background-position: 100% 0;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-button:focus{
+
+button:focus {
   outline: none;
 }
-br{
+
+br {
   font-size: 30px;
 }
-#alarmDialog{
-    width: 500px;
-    height:auto;
-    padding: 50px ;
-    margin: auto;
-    border: 1px solid;
-   border-color: rgb(108, 101, 60);
-    border-radius: 80px;
-   background-color: #02244d;
-   position: absolute;
-   display: none;
+
+#sectionButtonView {
+  overflow: hidden;
 }
-#dialogDivs{
+
+#sectionTimeView {
+  width: 50%;
+  margin-top: 50px;
+  height: 0px;
+  overflow: hidden;
+}
+
+.expandTimeView {
+  animation: expandTime 1.2s ease;
+}
+
+.expandButtonView {
+  animation: expandButton 1.2s ease;
+}
+
+@keyframes expandTime {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 250px;
+  }
+}
+
+@keyframes expandButton {
+  0% {
+    height: 0px;
+  }
+
+  100% {
+    height: 300px;
+  }
+}
+
+#timeDivs {
   display: flex;
   justify-content: center;
   margin: 25px;
-  font-size:18px;
-  color:rgb(28, 177, 28);
-  
-  
+  font-size: 18px;
+  color: rgb(28, 177, 28);
 }
-#dialogDivs>div{
+
+#timeDivs > div {
   width: 20%;
+  margin: 25px;
 }
-#goTopButton{
+
+#goTopButton {
   position: fixed;
   bottom: 20px;
   right: 20px;
   display: none;
   width: auto !important;
 }
-#seeMore, #hide{
-  color: rgb(202, 178, 135);
-}
-#hiddenContent{
-  display: none;
-}
-.dropdown{
 
+.dropdown {
   display: flex;
   position: fixed;
   left: 2%;
-  bottom:2%;
+  bottom: 2%;
 }
-a{
+
+a {
   text-decoration: none;
 }
-.dropdown-content{
+
+.dropdown-content {
   display: none;
 }
-.dropdown-content a{
-  display:inline;
+
+.dropdown-content a {
+  display: inline;
   border: none;
-  border-radius:10px;
-  padding:10px;
+  border-radius: 10px;
+  padding: 10px;
   margin: 10px;
 }
 
@@ -137,10 +177,9 @@ a{
 }
 
 .dropdown:hover .dropdown-content {
-  display: inline;  
+  display: inline;
 }
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
-
