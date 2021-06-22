@@ -21,12 +21,6 @@ window.onload = function functions() {
   document.getElementById("goBack").addEventListener("click", function () {
     goBackSection();
   });
-  document.getElementById("seeMore").addEventListener("click", function () {
-    toggleSeeMore();
-  });
-  document.getElementById("hide").addEventListener("click", function () {
-    toggleHide();
-  });
 };
 //ket thuc onload
 /*functions*/
@@ -135,7 +129,7 @@ function calculateButtonShow(timeContainer) {
     .getElementById("sectionButtonView")
     .classList.remove("expandButtonView");
   document.getElementById("sectionTimeView").classList.toggle("expandTimeView");
-  document.getElementById("sectionTimeView").style.height = "250px";
+  document.getElementById("sectionTimeView").style.height = "400px";
 }
 function goBackSection() {
   document.getElementById("sectionTimeView").style.height = "0px";
@@ -143,7 +137,7 @@ function goBackSection() {
   document
     .getElementById("sectionButtonView")
     .classList.toggle("expandButtonView");
-  document.getElementById("sectionButtonView").style.height = "300px";
+  document.getElementById("sectionButtonView").style.height = "400px";
 }
 //update time
 function updateTime(k) {
